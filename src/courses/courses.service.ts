@@ -14,7 +14,7 @@ export class CoursesService {
   }
 
   findById(id: string) {
-    const course = this.courseRepository.findOne(id);
+    const course = this.courseRepository.findOneBy({ id: +id });
 
     if (!course) {
       throw new NotFoundException(`Course id ${id} not found`);
@@ -29,10 +29,7 @@ export class CoursesService {
   }
 
   async update(id: string, updateCourseDto: UpdateCourseDto) {
-    const course = await this.courseRepository.preload({
-      id: +id,
-      ...updateCourseDto,
-    });
+    const course = await this.courseRepository.preload({ id: +id, ...updateCourseDto });
 
     if (!course) {
       throw new NotFoundException(`Course id ${id} not found`);
@@ -42,7 +39,7 @@ export class CoursesService {
   }
 
   async remove(id: string) {
-    const course = await this.courseRepository.findOne(id);
+    const course = await this.courseRepository.findOneBy({ id: +id });
 
     if (!course) {
       throw new NotFoundException(`Course id ${id} not found`);
