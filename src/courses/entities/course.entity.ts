@@ -12,8 +12,8 @@ export class Course {
   @Column()
   description: string;
 
-  @JoinTable()
+  @JoinTable({ name: 'courses_tags' })
   // Lá pra entidade de Tag existe uma propriedade courses. O lado inverso da relação
   @ManyToMany(() => Tag, (tag) => tag.courses, { cascade: true })
-  tags: string[];
+  tags: Tag[];
 }
