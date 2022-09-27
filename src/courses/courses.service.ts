@@ -14,11 +14,14 @@ export class CoursesService {
   ) {}
 
   findAll() {
-    return this.courseRepository.find();
+    return this.courseRepository.find({ relations: ['tags'] });
   }
 
   findById(id: string) {
-    const course = this.courseRepository.findOneBy({ id: +id });
+    const course = this.courseRepository.findOne({
+      where: { id: +id },
+      relations: ['tags'],
+    });
 
     if (!course) {
       throw new NotFoundException(`Course id ${id} not found`);
