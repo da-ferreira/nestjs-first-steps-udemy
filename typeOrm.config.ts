@@ -1,5 +1,4 @@
 import { DataSource } from 'typeorm';
-
 import { config } from 'dotenv';
 import { ConfigService } from '@nestjs/config';
 
@@ -17,14 +16,3 @@ export default new DataSource({
   entities: [__dirname + '/src/**/*.entity{.ts,.js}'],
   migrations: [__dirname + '/src/migrations/*.ts'],
 });
-
-// module.exports = {
-//   type: 'postgres',
-//   host: 'localhost',
-//   port: 5432,
-//   username: 'postgres',
-//   password: 'docker',
-//   database: 'postgres',
-//   entities: ['dist/**/*.entity.js'],
-//   migrations: ['dist/migrations/*.js'],
-// };

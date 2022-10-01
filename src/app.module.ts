@@ -9,11 +9,11 @@ import { CoursesModule } from './courses/courses.module';
     CoursesModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'db',
       port: 5432,
       username: 'postgres',
       password: 'docker',
-      database: 'postgres',
+      database: 'nestjs',
       autoLoadEntities: true,
       synchronize: false,
     }),
