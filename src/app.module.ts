@@ -15,7 +15,6 @@ import { CoursesModule } from './courses/courses.module';
       password: 'docker',
       database: 'nestjs',
       autoLoadEntities: true,
-      synchronize: false,
     }),
   ],
   controllers: [AppController],
